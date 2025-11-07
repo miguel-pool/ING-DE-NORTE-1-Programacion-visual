@@ -1,0 +1,179 @@
+﻿@page
+@model IndexModel
+@{
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playwrite+DE+Grund+Guides&display=swap" rel="stylesheet">
+
+    ViewData["Title"] = "ING DEL NORTE RESURRECIÓN";
+}
+<style>
+
+    body{
+        font-family: "Bitcount Grid Single", system-ui;
+    }
+    
+    body,header{
+        background-color:darkgray;
+    }
+
+    .chambeadores{
+        justify-content:space-around;
+        text-align:center;
+        display:flex;
+    }
+
+    .Trabajadores{
+        text-align:center;
+    }
+
+    .Rovio{
+        color:black;
+        width: 340px;
+        height: 390px;
+        padding: 1rem;
+        transition: box-shadow 0.5s ease;
+        background-color: darkred;
+        margin: 1rem 1rem;
+        border-radius: 1rem;
+        padding: 1.0rem 1.0rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,1);
+
+    }
+    .supercell{
+        color:black;
+        width: 340px;
+        height: 390px;
+        padding: 1rem;
+        transition: box-shadow 0.5s ease;
+        background-color: blue;
+        margin: 1rem 1rem;
+        border-radius: 1rem;
+        padding: 1.0rem 1.0rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,1); 
+    }
+    .microsoft{
+        color:black;
+        width: 340px;
+        height: 390px;
+        padding: 1rem;
+        transition: box-shadow 0.5s ease;
+        background-color:darkgoldenrod;
+        margin: 1rem 1rem;
+        border-radius: 1rem;
+        padding: 1.0rem 1.0rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,1);
+    }
+
+    .colaboradores{
+        text-align:center;
+        display:flex;
+        justify-content: space-around;
+    }
+
+    .titulo, p{
+        text-align:center;
+        
+    }
+
+    footer{
+        text-align:center;
+        background-color: darkgray;
+    }
+    
+
+</style>
+
+<!--SECCION DE TITULO-->
+<div class="text-center">
+    <strong><h1 class="display-4">ING DEL NORTE RESURRECIÓN</h1></strong>
+    <strong><p>100% YUCATECOS</p></strong>
+
+    <h1>CONOCENOS</h1>
+    <p>
+        Somos una empresa dedicada a la creación de videojuegos<br />
+        contamos con una existencia de 3 años en el mercado
+    </p>
+</div>
+
+<hr />
+
+<div>
+    <strong><h2 class="Trabajadores">Trabajadores</h2></strong>
+    <p class="Trabajadores">Nuestra empresa cuenta con excelentes trabajadores en <br />
+        sus filas,a continuacion les presentamos</p>
+</div>
+<hr />
+
+<!--SECCION DE TRABAJADORES-->
+<!--CADA UNO DE NOSTROS TIENEMOS UN DIV-->
+<div class="chambeadores">
+    <div class="miguel">
+        <strong><p>Miguel Eduardo Pool Cocom</p></strong>
+        <strong>Edad:</strong><p>19 años</p>
+        <strong><p>Experiencia:</strong> <br />
+         <p>Ha creado una gran cantidad habilidad <br />
+            en el apartado visual</p>
+    </div>
+
+    <div class="dani">
+        <strong><p>Daniel Humberto Gamboa Zaldívar</p></strong>
+        <strong>Edad:</strong><p>21 años</p>
+        <strong><p>Experiencia:</strong> <br />
+        <p>Experiencia en cofinguracion en Java <br /></p>
+    </div>
+
+    <div class="eliel">
+        <strong><p>Eliel Julian Ojeda Tun</p></strong>
+        <strong><p>Edad:</p></strong><p>19 años</p>
+        <strong><p>Experiencia:</strong> <br />
+        <p>He usado unity para crear algunos juegos indepentes <br /></p>
+    </div>
+
+    <div class="adrian">
+        <strong><p>Adrian Rafael Chi Poot</p></strong>
+        <strong>Edad:</strong><p>18 años</p>
+        <strong><p>Experiencia:</strong> <br />
+       <p>Nuevo en la empresa y con muchas ganas de aprender <br /></p>
+    </div>
+
+    <div class="miquela">
+        <strong><p>Angel Miquielajauregui Colli </p></strong>
+        <strong><p>Edad:</p></strong><p>19 años</p>
+        <strong><p>Experiencia:</strong> <br />
+        <p>Conocedor del mercado actual de videojuegos <br /></p>
+    </div>
+    
+</div>
+
+<hr />
+<!--SECCION DE COLBARADORES-->
+<div class="titulo">
+    <h2>Colaboradores</h2>
+    <p>
+        Durante nuestra existencia hemos colaborado<br />
+        con una gran varidad de empresas, entre ellas <br />
+        se encuentra:
+    </p>
+</div>
+
+<div class="colaboradores">
+        <h2 class="Rovio">Rovio
+             <p>Empresa dueña del famoso juego de Angry Birds</p>
+        </h2>
+    
+        <h2 class="supercell">Supercell
+            <p>Empresa dueña de los famosos juegos como <br />
+            Clash Royale, Clahs of clans,Brawl stars</p>
+        </h2>
+    
+        <h2 class="microsoft">Microsoft
+            <p>
+            Hemos colaborado con la empresa mas grandes tecnologica<br />
+            mente hablando
+            </p>
+        </h2>
+</div>
+
+
+

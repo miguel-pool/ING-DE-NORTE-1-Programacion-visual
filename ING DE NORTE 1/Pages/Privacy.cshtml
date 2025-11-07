@@ -1,0 +1,52 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Comunicate";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>CONTACTO</h2>
+<P>Para colaborar:</P>
+<p>Numero: 9989542345</p>
+<p>Correo: INGnorte11@gmail.com</p>
+
+
+@if (!string.IsNullOrEmpty(Model.Mensaje))
+{
+    string alertClass = Model.Mensaje.StartsWith("🎉") ? "alert-success" : "alert-danger";
+
+    <div class="alert @alertClass" role="alert">
+        @Html.Raw(Model.Mensaje)
+    </div>
+}
+<form method="POST" action="">
+</form>
+
+<hr />
+<form method="POST" action="">
+    <h2>Registrate con nostros:</h2>
+    <label>Nombres</label>
+    <input type ="text" name="nombre" placeholder="Ingresa tu nombre"/>
+    <br />
+    <br />
+    <label>Apellidos</label> 
+    <input type="text" name="apellido" placeholder="Ingresa tus apellidos" />
+    <br />
+    <br />
+    <label>Telefono</label>
+    <input type="number" name="telefono" placeholder="Ingresa su telefono" />
+    <br />
+    <br />
+    <label>Correo</label>
+    <input type="email" name="correo" placeholder="Ingrese su email" />
+    <br />
+    <br />
+    <label>Direccion</label>
+    <input type="text" name="direccion" placeholder="Domicilio" />
+    <br />
+    <br />
+    <label>Fecha de registro</label>
+    <input type="datetime" name="fecha_registro" placeholder="Nacimiento" /> <br />
+    <br />
+    <button type ="submit">Registrate</button>
+</form>

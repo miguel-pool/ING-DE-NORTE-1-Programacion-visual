@@ -31,6 +31,7 @@ namespace ING_DE_NORTE_1.Pages
 
         public void OnGet()
         {
+            /*
             using (MySqlAttributeCollection conn = new MySqlAttributeCollection(connectionString))
             {
                 string query = "SELECT genero FROM genero";
@@ -40,11 +41,11 @@ namespace ING_DE_NORTE_1.Pages
                 {
                     while (reader.Read())
                     {
-
+                        ListaGenero.Add(reader.GetString("genero"));
                     }
                 }
             }
-
+            */
         }
         public void OnPost(){
             string nombre = Request.Form["nombre"]!;

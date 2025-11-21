@@ -6,20 +6,25 @@ using System.Security.Cryptography;
 
 namespace ING_DE_NORTE_1.Pages
 {
+    public class GeneroOpcion
+    {
+        //Aqui agarra el ID de las opciones
+        public int Id { get; set; }
+        public string Nombre { get; set; } = "";
 
+    }
 
     public class PrivacyModel : PageModel
     {
-        string connectionString = "server=127.0.0.1; port=3306; database= empresa_mk; uid=root; password=cisco123";
-        public List<string> ListaGenero { get; set; } = new List<string>();
-
-
         [BindProperty]
         public string Mensaje { get; set; } = "";
 
+        //Accede a la base de datos y genera la lista
+        public List<GeneroOpcion> ListaDeGeneros { get; set; } = new List<GeneroOpcion>();
+        private readonly string connectionString = "server=127.0.0.1; port=3306; database=empresa_mk; uid=root; password=cisco123; AllowPublicKeyRetrieval=True;";
+        
         private readonly ILogger<PrivacyModel> _logger;
         private int total, precio, impuestos;
-        
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;
@@ -27,26 +32,45 @@ namespace ING_DE_NORTE_1.Pages
             impuestos = 0;
             total = precio + impuestos;
         }
-        
 
+        //Puente que hace la conexion
         public void OnGet()
         {
-            /*
-            using (MySqlAttributeCollection conn = new MySqlAttributeCollection(connectionString))
+            try
             {
-                string query = "SELECT genero FROM genero";
-                conn.Open();
-                using(MySqlAttributeCollection cmd = NewsStyleUriParser mysqlcommand(query,conn))
-                using(MySqlAttributeCollection reader = cmd.ExecuteReader())
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    while (reader.Read())
+                    //Abre la base de datos
+                    connection.Open();
+                    string query = "SELECT id_genero, genero FROM genero";
+
+                    
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        ListaGenero.Add(reader.GetString("genero"));
+                        
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListaDeGeneros.Add(new GeneroOpcion
+                                {
+                                    Id = reader.GetInt32("id_genero"),
+                                    
+                                    Nombre = reader.GetString("genero")
+                                });
+                            }
+                        }
                     }
-                }
+                } 
             }
-            */
+            //Mensaje de error
+            catch (Exception ex)
+            {
+                Mensaje = "Error al cargar generos: " + ex.Message;
+            }
         }
+
+        //Codigo para el formulario del P1
         public void OnPost(){
             string nombre = Request.Form["nombre"]!;
             string apellido = Request.Form["apellido"]!;
@@ -59,7 +83,7 @@ namespace ING_DE_NORTE_1.Pages
 
             string query = "Insert into empleados (nombre, apellido, telefono, correo, direccion, fecha_registro)" + "values(@nombre,@apellido,@telefono,@correo,@direccion,@fecha_registro)";
              
-
+            //Conexion a la base de datos
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -72,6 +96,7 @@ namespace ING_DE_NORTE_1.Pages
                     command.Parameters.AddWithValue("@fecha_registro", fechaRegistro);
                 
 
+                    //Mensajes de exito o fracaso
                     try
                     {
                         connection.Open();

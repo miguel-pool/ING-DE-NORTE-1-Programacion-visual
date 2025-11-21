@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Comunicate";
 }
-
+<!--Estilos para la pagina-->
 <style>
     body{
         background-color:dimgrey;
@@ -36,7 +36,7 @@
 }
 <form method="POST" action="">
 </form>
-
+<!--Primer cuestionario/formulario-->
 <hr />
 <form method="POST" action="">
     <h2>Registrate con nostros:</h2>
@@ -67,16 +67,13 @@
 </form>
 <br />
 <br />
-<form method="POST" action="" id="form1">
-    <h2>Selecciona tu genero:</h2>
-    <label>Genero</label>
-    <select>
-        <option value="Femenino">Femenino</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Forumula_1">Formula 1</option>
-            
-    </select>
-    
-</form>
 
+<!--Lista de opciones que toma de la tabla creada-->
+<select name="id_genero" class="form-control">
+    <option value="">-- Selecciona una opción --</option>
+    @foreach (var item in Model.ListaDeGeneros)
+    {
+        <option value="@item.Id">@item.Nombre</option>
+    }
+</select>
 

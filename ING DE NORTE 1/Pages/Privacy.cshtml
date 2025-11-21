@@ -3,12 +3,27 @@
 @{
     ViewData["Title"] = "Comunicate";
 }
-<h1>@ViewData["Title"]</h1>
 
-<h2>CONTACTO</h2>
-<P>Para colaborar:</P>
-<p>Numero: 9989542345</p>
-<p>Correo: INGnorte11@gmail.com</p>
+<style>
+    body{
+        background-color:dimgrey;
+    }
+    input{
+        display:inline-flex;
+        background-color:lightgray;
+        border-radius: 3cm;
+    }
+    button{
+
+        background-color:aliceblue;
+        border-radius : 3cm;
+    }
+    label{
+        color:white;
+    }
+
+</style>
+<h1>@ViewData["Title"]</h1>
 
 
 @if (!string.IsNullOrEmpty(Model.Mensaje))
@@ -25,7 +40,7 @@
 <hr />
 <form method="POST" action="">
     <h2>Registrate con nostros:</h2>
-    <label>Nombres</label>
+    <label>Nombre</label>
     <input type ="text" name="nombre" placeholder="Ingresa tu nombre"/>
     <br />
     <br />
@@ -48,5 +63,20 @@
     <label>Fecha de registro</label>
     <input type="datetime" name="fecha_registro" placeholder="Nacimiento" /> <br />
     <br />
-    <button type ="submit">Registrate</button>
+    <button type ="submit">Registrate y con genero</button>
 </form>
+<br />
+<br />
+<form method="POST" action="" id="form1">
+    <h2>Selecciona tu genero:</h2>
+    <label>Genero</label>
+    <select>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Forumula_1">Formula 1</option>
+            
+    </select>
+    
+</form>
+
+
